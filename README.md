@@ -1,10 +1,37 @@
-# FastCommerce
+<h1 align="center">
+FastCommerce
+</h1>
 
+<h5 align="center">
 Neste aplicação será desenvolvido uma simples loja ecommerce contemplando a funcionalidade de carrinha de compras e checkout.
+</h5>
 
-### **Constraints**
+<p align="center">
 
-- Starting out you may implement your product inventory as an array of Javascript objects if you are developing in Javascript. For other languages feel free to choose the in memory solution of your choice.
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/thalesmoraisdealmeida21/FastEcommerce?style=for-the-badge">
+
+
+  <a href="https://github.com/tgmarinho/README-ecoleta/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/thalesmoraisdealmeida21/FastEcommerce?style=for-the-badge">
+  </a>
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen?style=for-the-badge">
+
+
+  <a href="#">
+    <img alt="Feito pela Thales Morais" src="https://img.shields.io/badge/feito%20por-Thales%20Morais-%237519C1?style=for-the-badge">
+  </a>
+
+
+
+
+</p>
+
+
+<h4 align="center">
+	🚧   Em Desenvolvimento  🚧
+</h4>
+
 
 ## **User Stories**
 
@@ -17,14 +44,27 @@ Neste aplicação será desenvolvido uma simples loja ecommerce contemplando a f
 
 ## Tecnologias
 
-React
+ * React
+ * Styled Components
+ * Typescript
 
 ## Layout
 
 O layout esta diponivel no [Figma](https://www.figma.com/file/sIBaUuaB3s32PnZ5dGsKY0/Untitled?node-id=0%3A1)
 
-[https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FsIBaUuaB3s32PnZ5dGsKY0%2FUntitled%3Fnode-id%3D0%253A1](https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FsIBaUuaB3s32PnZ5dGsKY0%2FUntitled%3Fnode-id%3D0%253A1)
+## 🦸 Autor
 
-## **Example projects**
 
-- [eCommerce Animations](https://codepen.io/RSH87/pen/RagqEv)
+ <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/12722629?s=400&u=c3d3e1b1fccb1da4b9b7c906393a24d507adae36&v=4" width="100px;" alt=""/>
+ <br />
+ <sub><b>Thales Morais</b></sub>
+ <br />
+
+
+---
+
+## 📝 Licença
+
+Este projeto esta sobe a licença [MIT](./LICENSE).
+
+Feito com ❤️ por Thales Morais 👋🏽 [Entre em contato!](https://www.linkedin.com/in/thales-morais/)
