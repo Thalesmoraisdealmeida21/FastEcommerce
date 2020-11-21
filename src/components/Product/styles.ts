@@ -38,6 +38,10 @@ export const DeatilsToBuy = styled.div`
     border: transparent;
     background: #576061;
     color: #fff;
+    transition: 1s;
+    &:hover {
+      opacity: 0.7;
+    }
   }
 `;
 
