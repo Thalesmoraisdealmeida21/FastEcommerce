@@ -9,6 +9,7 @@ import {
 } from './styles';
 
 interface Product {
+  id: string;
   description: string;
   name: string;
   price: number;
@@ -49,8 +50,13 @@ const Product: React.FC<IProductProps> = ({
 
           <button
             onClick={() => {
-              setProductSelected(product);
+              setProductSelected({ ...product, quantity: 1 });
               SetOpenDetail(true);
+
+              const el = document.getElementById('inputQuantity');
+              if (el) {
+                el.focus();
+              }
             }}
             type="button"
           >

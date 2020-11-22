@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaArrowRight, FaMinus, FaPlus } from 'react-icons/fa';
+import { toast } from 'react-toastify';
+import { useCart } from '../../hooks/Cart';
 // import cadeira from '../../assets/cadeira.png';
 
 import {
@@ -13,6 +15,7 @@ import {
 } from './style';
 
 interface Product {
+  id: string;
   description: string;
   name: string;
   price: number;
@@ -32,8 +35,15 @@ const ProductDetail: React.FC<IDetail> = ({
   product,
   setProduct,
 }) => {
+  const { addToCart } = useCart();
+
   return (
-    <ContainerDetail isVisible={showDetails}>
+    <ContainerDetail
+      onBlur={() => {
+        setShowDetail(false);
+      }}
+      isVisible={showDetails}
+    >
       <ButtonCustomDetail
         type="button"
         onClick={() => {
@@ -72,6 +82,7 @@ const ProductDetail: React.FC<IDetail> = ({
               <input
                 value={product.quantity}
                 type="number"
+                id="inputQuantity"
                 onChange={evt => {
                   setProduct({
                     ...product,
@@ -90,7 +101,18 @@ const ProductDetail: React.FC<IDetail> = ({
             </ContainerInput>
           </QuantityContainer>
 
-          <Button type="button">Adicionar no Carrinho</Button>
+          <Button
+            type="button"
+            onClick={() => {
+              addToCart(product);
+              setShowDetail(false);
+              toast('Produto adicionado no carrinho com sucesso', {
+                type: 'success',
+              });
+            }}
+          >
+            Adicionar no Carrinho
+          </Button>
         </DetailContainer>
       </Content>
     </ContainerDetail>

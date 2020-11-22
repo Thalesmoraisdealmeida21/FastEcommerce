@@ -20,7 +20,8 @@ export const ContainerDetail = styled.div<DetailProductDropleft>`
 
 export const ButtonCustomDetail = styled.button`
   cursor: pointer;
-  margin: 50px;
+  margin-left: 50px;
+  margin-top: 25px;
   background: transparent;
   border: transparent;
 `;
@@ -30,7 +31,7 @@ export const Content = styled.div`
   flex-direction: column;
 
   img {
-    margin: 50px auto;
+    margin: 20px auto;
     height: 150px;
   }
 `;
@@ -43,7 +44,7 @@ export const DetailContainer = styled.div`
   color: #fff;
 
   h3 {
-    margin-top: 50px;
+    margin-top: 10px;
     font-size: 36px;
     font-weight: 300;
   }

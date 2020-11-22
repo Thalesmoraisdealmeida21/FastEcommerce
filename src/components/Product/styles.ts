@@ -11,9 +11,13 @@ export const Card = styled.div`
   background: #e8e8e8;
   padding: 10px;
 
+  @media (max-width: 350px) {
+    width: 300px;
+    height: 200px;
+  }
   img {
-    width: 130px;
-    height: 150px;
+    width: 80px;
+    height: 100px;
   }
 `;
 

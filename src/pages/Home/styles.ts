@@ -12,7 +12,7 @@ export const ContainerHome = styled.div`
 export const ActionItems = styled.div`
   display: flex;
   flex-direction: row;
-  margin: 30px;
+  margin: 30px 0;
   width: 100%;
 
   div {
@@ -34,7 +34,7 @@ export const ProductsList = styled.div`
   }
 `;
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.button<DropDownCart>`
   width: 80px;
   height: 60px;
   margin-left: auto;
@@ -43,6 +43,7 @@ export const ButtonContainer = styled.button`
   background: rgba(255, 255, 255, 0.68);
   transition: max-height 0.7s;
 
+  visibility: ${props => (props.isVisible ? 'hidden' : 'visible')};
   span {
     background: #fff;
     border-radius: 50%;
@@ -72,6 +73,10 @@ export const Content = styled.div`
   flex-direction: column;
   padding: 0 100px;
 
+  @media (max-width: 600px) {
+    padding: 0 30px;
+  }
+
   h1 {
     color: #fff;
     font-size: 36px;
@@ -84,7 +89,7 @@ export const CartCollapse = styled.div<DropDownCart>`
   box-shadow: -2px 7px 4px rgba(0, 0, 0, 0.25);
   visibility: visible;
   position: absolute;
-  right: 40px;
+  right: 10px;
   top: 150px;
   z-index: 9;
   padding: ${props => (props.isVisible ? '25px' : '0px')};
@@ -114,9 +119,18 @@ export const CartCollapse = styled.div<DropDownCart>`
 
   ul {
     border-bottom: 2px solid black;
+    overflow: scroll;
     li {
       display: flex;
       flex-direction: row;
+      border-bottom: 1px solid black;
+
+      button {
+        background: transparent;
+        color: #576061;
+        margin-top: 5px;
+        margin-right: 15px;
+      }
 
       img {
         width: 60px;

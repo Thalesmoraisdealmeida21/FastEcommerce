@@ -9,6 +9,15 @@ export const ContainerInput = styled.div`
   display: flex;
   flex-direction: row;
 
+  @media (max-width: 600px) {
+    width: 280px;
+  }
+
+  @media (max-width: 550px) {
+    width: 250px;
+    padding: 15px;
+  }
+
   input {
     background: transparent;
     border: transparent;

@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import { FaShoppingBag } from 'react-icons/fa';
+import { FaShoppingBag, FaTrash } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 import {
   ContainerHome,
   ActionItems,
@@ -14,51 +15,61 @@ import SearchBox from '../../components/SearchBox';
 import Product from '../../components/Product';
 import cadeira from '../../assets/cadeira.png';
 import ProductDetail from '../../components/ProductDetail';
+import { useCart } from '../../hooks/Cart';
 
 interface IProduct {
+  id: string;
   description: string;
   name: string;
   price: number;
   image: string;
   quantity: number;
 }
-
 const Home: React.FC = () => {
   const [showCart, setShowCart] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [productsDB, setProductsDB] = useState<IProduct[]>([]);
 
   const [productSelected, setProductSelected] = useState<Product>(
     {} as Product,
   );
 
+  const { products, removeToCart, clearCart, getTotal } = useCart();
+
   useEffect(() => {
-    setProducts([
+    setShowCart(false);
+  }, [showDetails]);
+
+  useEffect(() => {
+    setProductsDB([
       {
+        id: '1',
+        description: 'Lorem Impsum is simply dummy',
+        name: 'Armario Muito bonito',
+        image:
+          'https://www.novamaqmoveis.com.br/wp-content/uploads/2018/08/armario-alto-diretor.png',
+        price: 100,
+        quantity: 1,
+      },
+      {
+        id: '2',
         description: 'Lorem Impsum is simply dummy',
         name: 'Cadeira de Jardim',
+        image: cadeira,
+        price: 100,
+        quantity: 1,
+      },
+      {
+        id: '3',
+        description: 'Lorem Impsum is simply dummy',
+        name: 'Cadeira simples',
         image:
           'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cadeira-madeira.png',
         price: 100,
         quantity: 1,
       },
       {
-        description: 'Lorem Impsum is simply dummy',
-        name: 'Cadeira de Jardim',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cadeira-madeira.png',
-        price: 100,
-        quantity: 1,
-      },
-      {
-        description: 'Lorem Impsum is simply dummy',
-        name: 'Cadeira de Jardim',
-        image:
-          'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cadeira-madeira.png',
-        price: 100,
-        quantity: 1,
-      },
-      {
+        id: '4',
         description: 'Lorem Impsum is simply dummy',
         name: 'Cadeira de Escritório',
         image:
@@ -67,10 +78,11 @@ const Home: React.FC = () => {
         quantity: 1,
       },
       {
+        id: '5',
         description: 'Lorem Impsum is simply dummy',
-        name: 'Cadeira Gamer',
+        name: 'Banco Alto',
         image:
-          'https://www.matrixmoveis.com.br/image/cache/catalog/capa/cadeira-gamer-com-apoio-a11119-1000x1000.png',
+          'https://e7.pngegg.com/pngimages/58/362/png-clipart-brown-wooden-stool-chair-furniture-couch-chair-stool-bar-stool-thumbnail.png',
         price: 1650.9,
         quantity: 1,
       },
@@ -79,34 +91,36 @@ const Home: React.FC = () => {
 
   const handleSearchProduct = useCallback(
     (name: string) => {
-      console.log(name);
       if (name === '') {
-        setProducts([
+        setProductsDB([
           {
+            id: '1',
+            description: 'Lorem Impsum is simply dummy',
+            name: 'Armario Muito bonito',
+            image:
+              'https://www.novamaqmoveis.com.br/wp-content/uploads/2018/08/armario-alto-diretor.png',
+            price: 100,
+            quantity: 1,
+          },
+          {
+            id: '2',
             description: 'Lorem Impsum is simply dummy',
             name: 'Cadeira de Jardim',
+            image: cadeira,
+            price: 100,
+            quantity: 1,
+          },
+          {
+            id: '3',
+            description: 'Lorem Impsum is simply dummy',
+            name: 'Cadeira simples',
             image:
               'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cadeira-madeira.png',
             price: 100,
             quantity: 1,
           },
           {
-            description: 'Lorem Impsum is simply dummy',
-            name: 'Cadeira de Jardim',
-            image:
-              'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cadeira-madeira.png',
-            price: 100,
-            quantity: 1,
-          },
-          {
-            description: 'Lorem Impsum is simply dummy',
-            name: 'Cadeira de Jardim',
-            image:
-              'https://upload.wikimedia.org/wikipedia/commons/5/5a/Cadeira-madeira.png',
-            price: 100,
-            quantity: 1,
-          },
-          {
+            id: '4',
             description: 'Lorem Impsum is simply dummy',
             name: 'Cadeira de Escritório',
             image:
@@ -115,21 +129,23 @@ const Home: React.FC = () => {
             quantity: 1,
           },
           {
-            description: 'Lorem Impsum is simply dummy',
-            name: 'Cadeira Gamer',
+            id: '5',
+            description: 'Lorem Impsum is simpladdToCarty dummy',
+            name: 'Banco Alto',
             image:
-              'https://www.matrixmoveis.com.br/image/cache/catalog/capa/cadeira-gamer-com-apoio-a11119-1000x1000.png',
+              'https://e7.pngegg.com/pngimages/58/362/png-clipart-brown-wooden-stool-chair-furniture-couch-chair-stool-bar-stool-thumbnail.png',
             price: 1650.9,
             quantity: 1,
           },
         ]);
       } else {
-        const prodSearched = products.filter(prod => prod.name.includes(name));
-        setProducts(prodSearched);
-        console.log(products);
+        const prodSearched = productsDB.filter(prod =>
+          prod.name.includes(name),
+        );
+        setProductsDB(prodSearched);
       }
     },
-    [products],
+    [productsDB],
   );
 
   return (
@@ -152,76 +168,76 @@ const Home: React.FC = () => {
             />
 
             <ButtonContainer
+              isVisible={showDetails}
               onClick={() => {
                 setShowCart(!showCart);
               }}
-              onMouseEnter={() => {
-                setShowCart(true);
-              }}
             >
               <FaShoppingBag size={35} />
-              <span />
+              <span>{getTotal().counter}</span>
             </ButtonContainer>
 
-            <CartCollapse
-              onMouseEnter={() => {
-                setShowCart(true);
-              }}
-              isVisible={showCart}
-            >
+            <CartCollapse isVisible={showCart}>
               <ul>
-                <li>
-                  <img src={cadeira} alt="cadeira" />
-                  <div>
-                    <span>Cadeira de Jardim</span>
-                    <h3>R$ 100,00</h3>
-                  </div>
+                {products.map(product => (
+                  <li>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        removeToCart(product.id);
+                        toast('Item removido do carrinho com sucesso !', {
+                          type: 'success',
+                          position: 'top-left',
+                        });
+                      }}
+                    >
+                      <FaTrash size={20} />
+                    </button>
+                    <img src={product.image} alt="cadeira" />
+                    <div>
+                      <span>{product.name}</span>
+                      <h3>
+                        {Intl.NumberFormat('pt-BR', {
+                          style: 'currency',
+                          currency: 'BRL',
+                        }).format(product.price)}
+                      </h3>
+                    </div>
 
-                  <h2>x1</h2>
-                </li>
-
-                <li>
-                  <img src={cadeira} alt="cadeira" />
-                  <div>
-                    <span>Cadeira de Jardim</span>
-                    <h3>R$ 100,00</h3>
-                  </div>
-
-                  <h2>x1</h2>
-                </li>
-
-                <li>
-                  <img src={cadeira} alt="cadeira" />
-                  <div>
-                    <span>Cadeira de Jardim</span>
-                    <h3>R$ 100,00</h3>
-                  </div>
-
-                  <h2>x1</h2>
-                </li>
-
-                <li>
-                  <img src={cadeira} alt="cadeira" />
-                  <div>
-                    <span>Cadeira de Jardim</span>
-                    <h3>R$ 100,00</h3>
-                  </div>
-
-                  <h2>x2</h2>
-                </li>
+                    <h2>x{product.quantity}</h2>
+                  </li>
+                ))}
               </ul>
 
-              <h2>Total: R$ 1600,00</h2>
+              <h2>
+                Total:{' '}
+                {Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL',
+                }).format(getTotal().total)}
+              </h2>
 
-              <button type="button">Finalizar Pedido</button>
+              <button
+                type="button"
+                onClick={() => {
+                  clearCart();
+                  setShowCart(false);
+                  toast('Pedido Finalizado com sucesso', {
+                    type: 'success',
+                  });
+                }}
+              >
+                Finalizar Pedido
+              </button>
             </CartCollapse>
           </ActionItems>
 
           <h1>Encontre os melhores produtos</h1>
 
           <ProductsList>
-            {products.map(prod => (
+            {productsDB.map(prod => (
               <Product
+                key={prod.id}
                 SetOpenDetail={setShowDetails}
                 product={prod}
                 setProductSelected={setProductSelected}
