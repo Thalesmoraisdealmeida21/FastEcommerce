@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ProductContainer = styled.div``;
 
 export const Card = styled.div`
-  height: 300px;
+  height: 240px;
   width: 350px;
   border-radius: 15px;
   display: flex;
@@ -26,10 +26,11 @@ export const DeatilsToBuy = styled.div`
     font-weight: bold;
   }
 
-  span {
+  p {
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
+    width: 200px;
   }
   button {
     margin-left: auto;
@@ -38,7 +39,7 @@ export const DeatilsToBuy = styled.div`
     border: transparent;
     background: #576061;
     color: #fff;
-    transition: 1s;
+
     &:hover {
       opacity: 0.7;
     }

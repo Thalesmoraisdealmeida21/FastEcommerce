@@ -6,7 +6,7 @@ export const ContainerHeaderBar = styled.div`
   padding: 0 10vw;
 
   height: 50px;
-  width: 100vw;
+  width: 100%;
   max-width: 100vw;
   background: #394243;
   border-radius: 0px 0px 50px 50px;

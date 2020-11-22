@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Cadeira from '../../assets/cadeira.png';
+// import Cadeira from '../../assets/cadeira.png';
 import {
   DeatilsToBuy,
   ProductContainer,
@@ -8,27 +8,54 @@ import {
   ImgAndDescription,
 } from './styles';
 
-const Product: React.FC = () => {
+interface Product {
+  description: string;
+  name: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
+interface IProductProps {
+  SetOpenDetail: React.Dispatch<React.SetStateAction<boolean>>;
+  setProductSelected: React.Dispatch<React.SetStateAction<Product>>;
+  product: Product;
+}
+
+const Product: React.FC<IProductProps> = ({
+  SetOpenDetail,
+  product,
+  setProductSelected,
+}) => {
   return (
     <ProductContainer>
       <Card>
         <ImgAndDescription>
-          <img src={Cadeira} alt="Cadeira" />
+          <img src={product.image} alt="Cadeira" />
 
-          <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum is simply dummy text of the printing and
-            typesetting industry.{' '}
-          </p>
+          <p>{product.description}</p>
         </ImgAndDescription>
 
         <DeatilsToBuy>
           <div>
-            <span>Cadeira de Jardim</span>
-            <h4> R$ 100,00</h4>
+            <p>{product.name}</p>
+            <h4>
+              {' '}
+              {Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(product.price)}
+            </h4>
           </div>
 
-          <button type="button">Ver Detalhes</button>
+          <button
+            onClick={() => {
+              setProductSelected(product);
+              SetOpenDetail(true);
+            }}
+            type="button"
+          >
+            Ver Detalhes
+          </button>
         </DeatilsToBuy>
       </Card>
     </ProductContainer>

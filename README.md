@@ -3,7 +3,7 @@ FastCommerce
 </h1>
 
 <h5 align="center">
-Neste aplicação será desenvolvido uma simples loja ecommerce contemplando a funcionalidade de carrinha de compras e checkout.
+Neste aplicação será desenvolvido uma simples loja ecommerce contemplando a funcionalidade de carrinho de compras e checkout.
 </h5>
 
 <p align="center">
