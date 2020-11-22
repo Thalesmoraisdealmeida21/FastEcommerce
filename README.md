@@ -1,9 +1,9 @@
 <h1 align="center">
-FastCommerce
+  Fast Commerce
 </h1>
 
 <h5 align="center">
-Neste aplicação será desenvolvido uma simples loja ecommerce contemplando a funcionalidade de carrinho de compras e checkout.
+Neste aplicação será desenvolvido uma loja ecommerce.
 </h5>
 
 <p align="center">
@@ -29,24 +29,34 @@ Neste aplicação será desenvolvido uma simples loja ecommerce contemplando a f
 
 
 <h4 align="center">
-	🚧   Em Desenvolvimento  🚧
+<a href="https://jolly-poincare-44de19.netlify.app/">
+	Acessar demonstração da aplicação
+</a>
+
 </h4>
 
+<h3 algin="center">
+<img width="100%" src="https://media.giphy.com/media/g9ejtFe6LCLmvt8ocp/giphy.gif" />
+<h3>
 
-## **User Stories**
 
-- [ ]  Usuario podera adicionar items ao carrinho
-- [ ]  Usuário poderá visualizar todos os produtos disponíveis
-- [ ]  Usuário poderá clicar em ver detalhes e visualizar os detalhes do produto (descrição e mais imagens)
-- [ ]  Usuário receberá uma mensagem de confirmação quando adicionar o item no carrinho
-- [ ]  Ao clicar no carrinho o usuário poderá visualizar os produtos que comprou além do valor total
-- [ ]  Ao clicar em finalizar pedido no carrinho o Usuário poderá ver um simples checkout
+## **Funcionalidades**
+
+- [x]  Usuario podera adicionar items ao carrinho
+- [x]  Usuário poderá visualizar todos os produtos disponíveis
+- [x]  Usuário poderá clicar em ver detalhes e visualizar os detalhes do produto assim como definir a quantidade para adicionar no carrinho
+- [x]  Usuário receberá uma mensagem de confirmação quando adicionar o item no carrinho
+- [x]  Ao clicar no carrinho o usuário poderá visualizar os produtos que comprou além do valor total
+
 
 ## Tecnologias
 
  * React
  * Styled Components
  * Typescript
+ * CSS
+ * HTML
+
 
 ## Layout
 
